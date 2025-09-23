@@ -99,7 +99,7 @@ class CeleryConfig:
 
 CELERY_CONFIG = CeleryConfig
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
+FEATURE_FLAGS = {"ALERT_REPORTS": True,"DASHBOARD_RBAC": True,}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = f"http://superset_app{os.environ.get('SUPERSET_APP_ROOT', '/')}/"  # When using docker compose baseurl should be http://superset_nginx{ENV{BASEPATH}}/  # noqa: E501
 # The base URL for the email report hyperlinks.
@@ -136,3 +136,22 @@ try:
     )
 except ImportError:
     logger.info("Using default Docker config...")
+
+
+# ---------------------------
+# Custom Branding
+# ---------------------------
+# Branding
+APP_NAME = "BeaconMinds"                       # whatever name you want
+APP_ICON = "/static/assets/images/mylogo.png"  # <-- correct path
+APP_ICON_WIDTH = 200                           # optional: tweak size
+FAVICON = "/static/assets/images/mylogo.png"   # optional: your favicon
+# LOGO_TARGET_PATH = "/"                       # optional: where logo click goes
+
+
+# (Optional) Change UI brand colors if needed
+THEME_OVERRIDES = {
+    "primaryColor": "#1D4ED8",  # Example: Tailwind blue-700
+    "secondaryColor": "#9333EA",  # Example: Purple
+}
+

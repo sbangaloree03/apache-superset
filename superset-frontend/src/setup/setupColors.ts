@@ -69,26 +69,46 @@ export default function setupColors(
     config => new SequentialScheme(config),
   );
   registerColorSchemes(
-    // @ts-ignore
-    getCategoricalSchemeRegistry(),
-    [
-      ...CategoricalAirbnb,
-      ...CategoricalD3,
-      ...CategoricalEcharts,
-      ...CategoricalGoogle,
-      ...CategoricalLyft,
-      ...CategoricalPreset,
-      ...CategoricalSuperset,
-      ...CategoricalPresetSuperset,
-      ...CategoricalModernSunset,
-      ...CategoricalColorsOfRainbow,
-      ...CategoricalBlueToGreen,
-      ...CategoricalRedToYellow,
-      ...CategoricalWavesOfBlue,
-      ...extraCategoricalColorSchemes,
-    ],
-    'supersetColors',
-  );
+  // @ts-ignore
+  getCategoricalSchemeRegistry(),
+  [
+    ...CategoricalAirbnb,
+    ...CategoricalD3,
+    ...CategoricalEcharts,
+    ...CategoricalGoogle,
+    ...CategoricalLyft,
+    ...CategoricalPreset,
+    ...CategoricalSuperset,
+    ...CategoricalPresetSuperset,
+    ...CategoricalModernSunset,
+    ...CategoricalColorsOfRainbow,
+    ...CategoricalBlueToGreen,
+    ...CategoricalRedToYellow,
+    ...CategoricalWavesOfBlue,
+
+    // ✅ YOUR CUSTOM COLOR PALETTE
+    new CategoricalScheme({
+      id: 'my_custom_palette',
+      label: 'My Custom Palette',
+      colors: [
+        '#efce46', // bright yellow
+        '#142132', // deep navy
+        '#6bc3da', // aqua blue
+        '#f28e2b', // warm orange (contrast)
+        '#4e79a7', // muted blue (neutral)
+        '#59a14f', // green
+        '#e15759', // red
+        '#b07aa1', // lavender
+        '#ff9da7', // light pink
+        '#76b7b2', // teal
+      ],
+    }),
+
+    ...extraCategoricalColorSchemes,
+  ],
+  'supersetColors',
+);
+
   registerColorSchemes(
     // @ts-ignore
     getSequentialSchemeRegistry(),
